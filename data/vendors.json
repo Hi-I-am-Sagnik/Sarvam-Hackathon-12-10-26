@@ -1,0 +1,38 @@
+[
+  {
+    "vendor_id": "V-001",
+    "name": "Acme Industrial Supplies Pvt Ltd",
+    "gstin": "29ABCDE1234F1Z5",
+    "bank_account": "XXXX-1001",
+    "payment_terms": "NET30",
+    "category": "MRO Supplies",
+    "approved": true
+  },
+  {
+    "vendor_id": "V-002",
+    "name": "Bharat Components Ltd",
+    "gstin": "27PQRSX6789L1Z2",
+    "bank_account": "XXXX-1002",
+    "payment_terms": "NET45",
+    "category": "Components",
+    "approved": true
+  },
+  {
+    "vendor_id": "V-003",
+    "name": "Chennai Tools & Hardware",
+    "gstin": "33LMNOP4567Q1Z8",
+    "bank_account": "XXXX-1003",
+    "payment_terms": "NET30",
+    "category": "Tools",
+    "approved": true
+  },
+  {
+    "vendor_id": "V-004",
+    "name": "Vertex Machinery Systems",
+    "gstin": "07UVWXY1234Z1Z1",
+    "bank_account": "XXXX-1004",
+    "payment_terms": "NET60",
+    "category": "Capital Equipment",
+    "approved": true
+  }
+]
