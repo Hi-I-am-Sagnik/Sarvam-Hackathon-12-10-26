@@ -1,0 +1,239 @@
+{
+  "summary": {
+    "invoices_processed": 8,
+    "touchless": 2,
+    "touchless_rate_pct": 25.0,
+    "by_decision": {
+      "AUTO_APPROVED": 2,
+      "ROUTED_TO_EXCEPTION": 5,
+      "PENDING_APPROVAL": 1
+    },
+    "by_match": {
+      "MATCHED": 3,
+      "EXCEPTION": 3,
+      "UNMATCHED": 1,
+      "DUPLICATE": 1
+    },
+    "posted": 2,
+    "payment_lines": 2,
+    "payment_value": 3687.5
+  },
+  "invoices": [
+    {
+      "source_file": "inv_1001_acme_clean.pdf",
+      "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+      "vendor_id": "V-001",
+      "invoice_no": "INV-1001",
+      "invoice_date": "05/09/2026",
+      "po_number": "PO-5001",
+      "currency": "INR",
+      "total": 2183.0,
+      "extraction_confidence": 1.0,
+      "validation_issues": [],
+      "match_status": "MATCHED",
+      "discrepancies": [],
+      "decision_status": "AUTO_APPROVED",
+      "approvers": [],
+      "decision_reason": "Amount 2,183.00 within touchless limit"
+    },
+    {
+      "source_file": "inv_1002_acme_tol.pdf",
+      "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+      "vendor_id": "V-001",
+      "invoice_no": "INV-1002",
+      "invoice_date": "06/09/2026",
+      "po_number": "PO-5002",
+      "currency": "INR",
+      "total": 1504.5,
+      "extraction_confidence": 1.0,
+      "validation_issues": [],
+      "match_status": "MATCHED",
+      "discrepancies": [],
+      "decision_status": "AUTO_APPROVED",
+      "approvers": [],
+      "decision_reason": "Amount 1,504.50 within touchless limit"
+    },
+    {
+      "source_file": "inv_1003_bharat_price.pdf",
+      "vendor_name": "Bharat Components Ltd",
+      "vendor_id": "V-002",
+      "invoice_no": "INV-1003",
+      "invoice_date": "07/09/2026",
+      "po_number": "PO-5003",
+      "currency": "INR",
+      "total": 25960.0,
+      "extraction_confidence": 1.0,
+      "validation_issues": [],
+      "match_status": "EXCEPTION",
+      "discrepancies": [
+        {
+          "code": "PRICE_VARIANCE",
+          "detail": "SKU-500: invoice 440.00 vs PO 400.00 (+10.0%)",
+          "severity": "BLOCK"
+        }
+      ],
+      "decision_status": "ROUTED_TO_EXCEPTION",
+      "approvers": [],
+      "decision_reason": "Matching issue (PRICE_VARIANCE) \u2014 human review required"
+    },
+    {
+      "source_file": "inv_1004_acme_qty.pdf",
+      "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+      "vendor_id": "V-001",
+      "invoice_no": "INV-1004",
+      "invoice_date": "08/09/2026",
+      "po_number": "PO-5004",
+      "currency": "INR",
+      "total": 1770.0,
+      "extraction_confidence": 1.0,
+      "validation_issues": [],
+      "match_status": "EXCEPTION",
+      "discrepancies": [
+        {
+          "code": "QTY_VARIANCE",
+          "detail": "SKU-100: invoiced 120 vs PO 100 (+20.0%)",
+          "severity": "BLOCK"
+        }
+      ],
+      "decision_status": "ROUTED_TO_EXCEPTION",
+      "approvers": [],
+      "decision_reason": "Matching issue (QTY_VARIANCE) \u2014 human review required"
+    },
+    {
+      "source_file": "inv_1005_chennai_nopo.pdf",
+      "vendor_name": "Chennai Tools & Hardware",
+      "vendor_id": "V-003",
+      "invoice_no": "INV-1005",
+      "invoice_date": "08/09/2026",
+      "po_number": null,
+      "currency": "INR",
+      "total": 2950.0,
+      "extraction_confidence": 0.88,
+      "validation_issues": [],
+      "match_status": "UNMATCHED",
+      "discrepancies": [
+        {
+          "code": "NO_PO_REFERENCE",
+          "detail": "Invoice carries no PO number",
+          "severity": "BLOCK"
+        }
+      ],
+      "decision_status": "ROUTED_TO_EXCEPTION",
+      "approvers": [],
+      "decision_reason": "Matching issue (NO_PO_REFERENCE) \u2014 human review required"
+    },
+    {
+      "source_file": "inv_1006_duplicate.pdf",
+      "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+      "vendor_id": "V-001",
+      "invoice_no": "INV-1001",
+      "invoice_date": "09/09/2026",
+      "po_number": "PO-5001",
+      "currency": "INR",
+      "total": 2183.0,
+      "extraction_confidence": 1.0,
+      "validation_issues": [],
+      "match_status": "DUPLICATE",
+      "discrepancies": [
+        {
+          "code": "DUPLICATE_INVOICE",
+          "detail": "Invoice INV-1001 from Acme Industrial Supplies Pvt Ltd (total 2183.0) already processed",
+          "severity": "BLOCK"
+        }
+      ],
+      "decision_status": "ROUTED_TO_EXCEPTION",
+      "approvers": [],
+      "decision_reason": "Matching issue (DUPLICATE_INVOICE) \u2014 human review required"
+    },
+    {
+      "source_file": "inv_1007_unknown_vendor.pdf",
+      "vendor_name": "Rogue Traders",
+      "vendor_id": null,
+      "invoice_no": "INV-1007",
+      "invoice_date": "09/09/2026",
+      "po_number": "PO-5003",
+      "currency": "INR",
+      "total": 590.0,
+      "extraction_confidence": 1.0,
+      "validation_issues": [
+        {
+          "code": "VENDOR_NOT_FOUND",
+          "detail": "Vendor 'Rogue Traders' / GSTIN '27ZZZZZ9999Z9Z9' not in master",
+          "severity": "BLOCK"
+        }
+      ],
+      "match_status": "EXCEPTION",
+      "discrepancies": [
+        {
+          "code": "LINE_NOT_ON_PO",
+          "detail": "SKU-800 (Misc fittings) is not on PO PO-5003",
+          "severity": "BLOCK"
+        },
+        {
+          "code": "LINE_MISSING_FROM_INVOICE",
+          "detail": "PO line SKU-500 not billed on this invoice",
+          "severity": "WARN"
+        }
+      ],
+      "decision_status": "ROUTED_TO_EXCEPTION",
+      "approvers": [],
+      "decision_reason": "Blocking validation issue \u2014 human review required"
+    },
+    {
+      "source_file": "inv_1008_vertex_capex.pdf",
+      "vendor_name": "Vertex Machinery Systems",
+      "vendor_id": "V-004",
+      "invoice_no": "INV-1008",
+      "invoice_date": "10/09/2026",
+      "po_number": "PO-5005",
+      "currency": "INR",
+      "total": 1416000.0,
+      "extraction_confidence": 1.0,
+      "validation_issues": [],
+      "match_status": "MATCHED",
+      "discrepancies": [],
+      "decision_status": "PENDING_APPROVAL",
+      "approvers": [
+        "Manager",
+        "Finance Head"
+      ],
+      "decision_reason": "Amount 1,416,000.00 requires Manager + Finance Head"
+    }
+  ],
+  "postings": [
+    {
+      "posting_id": "POST-00001",
+      "invoice_no": "INV-1001",
+      "vendor_id": "V-001",
+      "amount": 2183.0,
+      "gl_account": "2000-Accounts Payable",
+      "status": "POSTED"
+    },
+    {
+      "posting_id": "POST-00002",
+      "invoice_no": "INV-1002",
+      "vendor_id": "V-001",
+      "amount": 1504.5,
+      "gl_account": "2000-Accounts Payable",
+      "status": "POSTED"
+    }
+  ],
+  "payment_batch": [
+    {
+      "vendor_id": "V-001",
+      "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+      "invoice_no": "INV-1001",
+      "amount": 2183.0,
+      "due_date": "05/10/2026",
+      "payment_terms": "NET30"
+    },
+    {
+      "vendor_id": "V-001",
+      "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+      "invoice_no": "INV-1002",
+      "amount": 1504.5,
+      "due_date": "06/10/2026",
+      "payment_terms": "NET30"
+    }
+  ]
+}
