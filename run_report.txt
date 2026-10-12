@@ -1,0 +1,98 @@
+==========================================================================
+  ACCOUNTS PAYABLE AGENT — RUN REPORT
+==========================================================================
+
+  inv_1001_acme_clean.pdf
+    Vendor     : Acme Industrial Supplies Pvt Ltd  [V-001]
+    Invoice No : INV-1001   Date: 05/09/2026   PO: PO-5001
+    Total      : INR 2,183.00
+    Extraction : confidence 1.0 (2 line items)
+    Match      : MATCHED
+    Decision   : AUTO_APPROVED
+    Reason     : Amount 2,183.00 within touchless limit
+
+  inv_1002_acme_tol.pdf
+    Vendor     : Acme Industrial Supplies Pvt Ltd  [V-001]
+    Invoice No : INV-1002   Date: 06/09/2026   PO: PO-5002
+    Total      : INR 1,504.50
+    Extraction : confidence 1.0 (1 line items)
+    Match      : MATCHED
+    Decision   : AUTO_APPROVED
+    Reason     : Amount 1,504.50 within touchless limit
+
+  inv_1003_bharat_price.pdf
+    Vendor     : Bharat Components Ltd  [V-002]
+    Invoice No : INV-1003   Date: 07/09/2026   PO: PO-5003
+    Total      : INR 25,960.00
+    Extraction : confidence 1.0 (1 line items)
+    Match      : EXCEPTION
+        - [BLOCK] PRICE_VARIANCE: SKU-500: invoice 440.00 vs PO 400.00 (+10.0%)
+    Decision   : ROUTED_TO_EXCEPTION
+    Reason     : Matching issue (PRICE_VARIANCE) — human review required
+
+  inv_1004_acme_qty.pdf
+    Vendor     : Acme Industrial Supplies Pvt Ltd  [V-001]
+    Invoice No : INV-1004   Date: 08/09/2026   PO: PO-5004
+    Total      : INR 1,770.00
+    Extraction : confidence 1.0 (1 line items)
+    Match      : EXCEPTION
+        - [BLOCK] QTY_VARIANCE: SKU-100: invoiced 120 vs PO 100 (+20.0%)
+    Decision   : ROUTED_TO_EXCEPTION
+    Reason     : Matching issue (QTY_VARIANCE) — human review required
+
+  inv_1005_chennai_nopo.pdf
+    Vendor     : Chennai Tools & Hardware  [V-003]
+    Invoice No : INV-1005   Date: 08/09/2026   PO: —
+    Total      : INR 2,950.00
+    Extraction : confidence 0.88 (1 line items)
+    Match      : UNMATCHED
+        - [BLOCK] NO_PO_REFERENCE: Invoice carries no PO number
+    Decision   : ROUTED_TO_EXCEPTION
+    Reason     : Matching issue (NO_PO_REFERENCE) — human review required
+
+  inv_1006_duplicate.pdf
+    Vendor     : Acme Industrial Supplies Pvt Ltd  [V-001]
+    Invoice No : INV-1001   Date: 09/09/2026   PO: PO-5001
+    Total      : INR 2,183.00
+    Extraction : confidence 1.0 (2 line items)
+    Match      : DUPLICATE
+        - [BLOCK] DUPLICATE_INVOICE: Invoice INV-1001 from Acme Industrial Supplies Pvt Ltd (total 2183.0) already processed
+    Decision   : ROUTED_TO_EXCEPTION
+    Reason     : Matching issue (DUPLICATE_INVOICE) — human review required
+
+  inv_1007_unknown_vendor.pdf
+    Vendor     : Rogue Traders  [UNKNOWN]
+    Invoice No : INV-1007   Date: 09/09/2026   PO: PO-5003
+    Total      : INR 590.00
+    Extraction : confidence 1.0 (1 line items)
+    Match      : EXCEPTION
+        - [BLOCK] LINE_NOT_ON_PO: SKU-800 (Misc fittings) is not on PO PO-5003
+        - [WARN] LINE_MISSING_FROM_INVOICE: PO line SKU-500 not billed on this invoice
+        - [BLOCK] VENDOR_NOT_FOUND: Vendor 'Rogue Traders' / GSTIN '27ZZZZZ9999Z9Z9' not in master
+    Decision   : ROUTED_TO_EXCEPTION
+    Reason     : Blocking validation issue — human review required
+
+  inv_1008_vertex_capex.pdf
+    Vendor     : Vertex Machinery Systems  [V-004]
+    Invoice No : INV-1008   Date: 10/09/2026   PO: PO-5005
+    Total      : INR 1,416,000.00
+    Extraction : confidence 1.0 (1 line items)
+    Match      : MATCHED
+    Decision   : PENDING_APPROVAL  (approvers: Manager, Finance Head)
+    Reason     : Amount 1,416,000.00 requires Manager + Finance Head
+
+--------------------------------------------------------------------------
+  SUMMARY
+--------------------------------------------------------------------------
+    Invoices processed : 8
+    Touchless          : 2  (25.0%)
+    By decision        : {'AUTO_APPROVED': 2, 'ROUTED_TO_EXCEPTION': 5, 'PENDING_APPROVAL': 1}
+    By match           : {'MATCHED': 3, 'EXCEPTION': 3, 'UNMATCHED': 1, 'DUPLICATE': 1}
+    Posted to ERP      : 2
+    Payment batch      : 2 lines, INR 3,687.50
+
+  PAYMENT BATCH (prepared, awaiting release)
+    Vendor                      Invoice     Terms   Due               Amount
+    Acme Industrial Supplies Pv INV-1001    NET30   05/10/2026      2,183.00
+    Acme Industrial Supplies Pv INV-1002    NET30   06/10/2026      1,504.50
+==========================================================================
