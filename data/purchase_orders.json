@@ -1,0 +1,83 @@
+[
+  {
+    "po_number": "PO-5001",
+    "vendor_id": "V-001",
+    "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+    "currency": "INR",
+    "status": "OPEN",
+    "lines": [
+      {
+        "sku": "SKU-100",
+        "description": "Steel bolts M8",
+        "qty": 100,
+        "unit_price": 12.5
+      },
+      {
+        "sku": "SKU-205",
+        "description": "Washers 8mm",
+        "qty": 200,
+        "unit_price": 3.0
+      }
+    ]
+  },
+  {
+    "po_number": "PO-5002",
+    "vendor_id": "V-001",
+    "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+    "currency": "INR",
+    "status": "OPEN",
+    "lines": [
+      {
+        "sku": "SKU-100",
+        "description": "Steel bolts M8",
+        "qty": 100,
+        "unit_price": 12.5
+      }
+    ]
+  },
+  {
+    "po_number": "PO-5003",
+    "vendor_id": "V-002",
+    "vendor_name": "Bharat Components Ltd",
+    "currency": "INR",
+    "status": "OPEN",
+    "lines": [
+      {
+        "sku": "SKU-500",
+        "description": "Bearing assembly",
+        "qty": 50,
+        "unit_price": 400.0
+      }
+    ]
+  },
+  {
+    "po_number": "PO-5004",
+    "vendor_id": "V-001",
+    "vendor_name": "Acme Industrial Supplies Pvt Ltd",
+    "currency": "INR",
+    "status": "OPEN",
+    "lines": [
+      {
+        "sku": "SKU-100",
+        "description": "Steel bolts M8",
+        "qty": 100,
+        "unit_price": 12.5
+      }
+    ]
+  },
+  {
+    "po_number": "PO-5005",
+    "vendor_id": "V-004",
+    "vendor_name": "Vertex Machinery Systems",
+    "currency": "INR",
+    "status": "OPEN",
+    "lines": [
+      {
+        "sku": "SKU-900",
+        "description": "CNC spindle unit",
+        "qty": 2,
+        "unit_price": 600000.0
+      }
+    ]
+  }
+]
